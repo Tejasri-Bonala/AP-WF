@@ -9,28 +9,28 @@
     xmlns:uxap="sap.uxap"
     xmlns:suite="sap.suite.ui.commons"
     xmlns="sap.m">
-
-    <uxap:ObjectPageLayout id="objectPageLayout" showTitleInHeaderContent="true">
+ <Page id="pageId">
+    <uxap:ObjectPageLayout id="objectPageLayout" showTitleInHeaderContent="false">
         <uxap:headerTitle>
             <uxap:ObjectPageHeader objectTitle="Order Confirmation" objectSubtitle="A new order has been received. Please review and confirm whether the requirements can be met or not." />
         </uxap:headerTitle>
         <uxap:sections>
-            <uxap:ObjectPageSection id="requestInformationSection" title="Request Information">
+            <uxap:ObjectPageSection id="requestInformationSection">
                 <uxap:subSections>
                     <uxap:ObjectPageSubSection id="requestInformationSubSection" title="Details">
                         <uxap:blocks>
                             <form:SimpleForm id="request-information-form" editable="false" layout="ResponsiveGridLayout" singleContainerFullSize="false">
                                 <form:content>
                                     <core:Title id="vacation-timerange-heading" text="Project Information"/>
-                                    <Label id="customer-name-label" text="Project Number" labelFor="customer-name-field"/>
+                                    <Label id="customer-name-label" text="PROJECT_NUMBER" labelFor="customer-name-field"/>
                                     <Input id="customer-name-field" value="{context>/PROJECT_NUMBER}" editable="false"/>
                                     <Label id="capex-label" text="CAPEX" labelFor="capex-field"/>
                                     <Input id="capex-field" value="{context>/CAPEX}" editable="false"/>
                                     <Label id="opex-label" text="OPEX" labelFor="opex-field"/>
                                     <Input id="opex-field" value="{context>/OPEX}" editable="false"/>
-                                    <Label id="year-label" text="Year" labelFor="year-field"/>
+                                    <Label id="year-label" text="YEAR" labelFor="year-field"/>
                                     <Input id="year-field" value="{context>/YEAR}" editable="false"/>
-                                    <Label id="plant-label" text="Plant" labelFor="plant-field"/>
+                                    <Label id="plant-label" text="PLANT" labelFor="plant-field"/>
                                     <Input id="plant-field" value="{context>/PLANT}" editable="false"/>
                                 </form:content>
                             </form:SimpleForm>
@@ -38,10 +38,11 @@
                     </uxap:ObjectPageSubSection>
                 </uxap:subSections>
             </uxap:ObjectPageSection>
-            <uxap:ObjectPageSection id="workflowSection" title="Workflow">
+            <uxap:ObjectPageSection id="workflowSection">
                 <uxap:subSections>
                     <uxap:ObjectPageSubSection id="workflowSubSection" title="Process Flow">
                         <uxap:blocks>
+                        <panel>
                             <suite:ProcessFlow id="processflow1" scrollable="false" foldedCorners="true" nodePress="onNodePress" nodes="{stepsModel>/nodes}" lanes="{stepsModel>/lanes}">
                                 <suite:nodes>
                                     <suite:ProcessFlowNode laneId="{stepsModel>lane}" nodeId="{stepsModel>id}" title="{stepsModel>title}" titleAbbreviation="{stepsModel>names}" children="{stepsModel>children}" state="{stepsModel>state}" stateText="{stepsModel>stateText}" texts="{stepsModel>texts}" highlighted="{stepsModel>highlighted}" focused="{stepsModel>focused}" />
@@ -58,11 +59,12 @@
                                     <suite:ProcessFlowLaneHeader laneId="{pf2>laneId}" iconSrc="{pf2>iconSrc}" text="{pf2>text}" position="{pf2>position}" />
                                 </suite:lanes>
                             </suite:ProcessFlow>
+                            </panel>
                         </uxap:blocks>
                     </uxap:ObjectPageSubSection>
                 </uxap:subSections>
             </uxap:ObjectPageSection>
-            <uxap:ObjectPageSection id="commentsSection" title="Comments">
+            <uxap:ObjectPageSection id="commentsSection">
                 <uxap:subSections>
                     <uxap:ObjectPageSubSection id="commentsSubSectionFeedback" title="Feedback">
                         <uxap:blocks>
@@ -79,4 +81,5 @@
             </uxap:ObjectPageSection>
         </uxap:sections>
     </uxap:ObjectPageLayout>
+    </Page>
 </mvc:View>
