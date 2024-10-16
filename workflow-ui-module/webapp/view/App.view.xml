@@ -42,7 +42,6 @@
                 <uxap:subSections>
                     <uxap:ObjectPageSubSection id="workflowSubSection" title="Process Flow">
                         <uxap:blocks>
-                        <panel>
                             <suite:ProcessFlow id="processflow1" scrollable="false" foldedCorners="true" nodePress="onNodePress" nodes="{stepsModel>/nodes}" lanes="{stepsModel>/lanes}">
                                 <suite:nodes>
                                     <suite:ProcessFlowNode laneId="{stepsModel>lane}" nodeId="{stepsModel>id}" title="{stepsModel>title}" titleAbbreviation="{stepsModel>names}" children="{stepsModel>children}" state="{stepsModel>state}" stateText="{stepsModel>stateText}" texts="{stepsModel>texts}" highlighted="{stepsModel>highlighted}" focused="{stepsModel>focused}" />
@@ -59,7 +58,6 @@
                                     <suite:ProcessFlowLaneHeader laneId="{pf2>laneId}" iconSrc="{pf2>iconSrc}" text="{pf2>text}" position="{pf2>position}" />
                                 </suite:lanes>
                             </suite:ProcessFlow>
-                            </panel>
                         </uxap:blocks>
                     </uxap:ObjectPageSubSection>
                 </uxap:subSections>
