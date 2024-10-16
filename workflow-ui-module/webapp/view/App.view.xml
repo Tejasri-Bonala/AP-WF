@@ -68,7 +68,7 @@
                         <uxap:blocks>
                             <VBox id="comment-wrapper" class="sapUiSmallMargin">
                                 <CheckBox id="Ack" text="I acknowledge that we have received your order and will process it based on the availability" />
-                                <FeedInput post="onPost" icon="test-resources/sap/m/images/dronning_victoria.jpg" />
+                                <FeedInput post="onPost"/>
                                 <List showSeparators="Inner" items="{Feed>/EntryCollection}">
                                     <FeedListItem sender="{Feed>Author}" info="{Feed>Type}" icon="{Feed>AuthorPicUrl}" timestamp="{Feed>Date}" text="{Feed>Text}" />
                                 </List>
