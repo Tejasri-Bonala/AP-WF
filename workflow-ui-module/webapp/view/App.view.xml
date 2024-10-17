@@ -9,31 +9,85 @@
     xmlns:uxap="sap.uxap"
     xmlns:suite="sap.suite.ui.commons"
     xmlns="sap.m">
- <Page id="pageId">
+
     <uxap:ObjectPageLayout id="objectPageLayout" showTitleInHeaderContent="false">
         <uxap:headerTitle>
             <uxap:ObjectPageHeader objectTitle="Order Confirmation" objectSubtitle="A new order has been received. Please review and confirm whether the requirements can be met or not." />
         </uxap:headerTitle>
         <uxap:sections>
-            <uxap:ObjectPageSection id="requestInformationSection">
+            <uxap:ObjectPageSection id="information">
                 <uxap:subSections>
-                    <uxap:ObjectPageSubSection id="requestInformationSubSection" title="Details">
+                    <uxap:ObjectPageSubSection id="infoSubSection" title="Request Information">
                         <uxap:blocks>
-                            <form:SimpleForm id="request-information-form" editable="false" layout="ResponsiveGridLayout" singleContainerFullSize="false">
-                                <form:content>
-                                    <core:Title id="vacation-timerange-heading" text="Project Information"/>
-                                    <Label id="customer-name-label" text="PROJECT_NUMBER" labelFor="customer-name-field"/>
-                                    <Input id="customer-name-field" value="{context>/PROJECT_NUMBER}" editable="false"/>
-                                    <Label id="capex-label" text="CAPEX" labelFor="capex-field"/>
-                                    <Input id="capex-field" value="{context>/CAPEX}" editable="false"/>
-                                    <Label id="opex-label" text="OPEX" labelFor="opex-field"/>
-                                    <Input id="opex-field" value="{context>/OPEX}" editable="false"/>
-                                    <Label id="year-label" text="YEAR" labelFor="year-field"/>
-                                    <Input id="year-field" value="{context>/YEAR}" editable="false"/>
-                                    <Label id="plant-label" text="PLANT" labelFor="plant-field"/>
-                                    <Input id="plant-field" value="{context>/PLANT}" editable="false"/>
-                                </form:content>
-                            </form:SimpleForm>
+                            <VBox>
+                                <!-- General Information Section -->
+                                <Panel headerText="General Information" width="100%">
+                                    <form:SimpleForm editable="false" width="100%">
+                                        <form:content>
+                                            <Label text="Project Number" />
+                                            <Input id="projectNumber1" value="{context>/PROJECT_NUMBER}" width="50%" editable="false" />
+
+                                            <Label text="CTO Label" />
+                                            <Input id="ctoLabel1" value="{context>/CTO_LABEL}" width="50%" editable="false" />
+
+                                            <Label text="Project Maturity" />
+                                            <Input id="projectMaturity1" value="{context>/PROJECT_MATURITY}" width="50%" editable="false" />
+                                        </form:content>
+                                    </form:SimpleForm>
+                                </Panel>
+                                <!-- Financial Information Section -->
+                                <Panel headerText="Financial Information" width="100%">
+                                    <form:SimpleForm editable="false" width="100%">
+                                        <form:content>
+                                            <Label text="Title" />
+                                            <Input id="title1" value="{context>/TITLE}" width="50%" editable="false" />
+
+                                            <Label text="Accounting Type" />
+                                            <Input id="accountingType1" value="{context>/ACCOUNTING_TYPE}" width="50%" editable="false" />
+
+                                            <Label text="Currency" />
+                                            <Input id="currency1" value="{context>/CURRENCY}" width="50%" editable="false" />
+
+                                            <Label text="Forex (vs €)" />
+                                            <Input id="forex1" value="{context>/FOREX}" width="50%" editable="false" />
+                                        </form:content>
+                                    </form:SimpleForm>
+                                </Panel>
+                                <!-- Project Details Section -->
+                                <Panel headerText="Project Details" width="100%">
+                                    <form:SimpleForm editable="false" width="100%">
+                                        <form:content>
+                                            <Label text="Perimeter" />
+                                            <Input id="perimeter1" value="{context>/PERIMETER}" width="50%" editable="false" />
+
+                                            <Label text="Plant" />
+                                            <Input id="plant1" value="{context>/PLANT}" width="50%" editable="false" />
+
+                                            <Label text="Capex" />
+                                            <Input id="capex1" value="{context>/CAPEX}" width="50%" editable="false" />
+
+                                            <Label text="Opex" />
+                                            <Input id="opex1" value="{context>/OPEX}" width="50%" editable="false" />
+
+                                            <Label text="Lease" />
+                                            <Input id="lease1" value="{context>/LEASE}" width="50%" editable="false" />
+                                        </form:content>
+                                    </form:SimpleForm>
+                                </Panel>
+
+                                <!-- Categories Section -->
+                                <Panel headerText="Categories" width="100%">
+                                    <form:SimpleForm editable="false" width="100%">
+                                        <form:content>
+                                            <Label text="Categories" />
+                                            <Input id="categories1" value="{context>/CATEGORIES}" width="50%" editable="false" />
+
+                                            <Label text="Year N" />
+                                            <Input id="yearN" value="{context>/YEAR}" width="50%" editable="false" />
+                                        </form:content>
+                                    </form:SimpleForm>
+                                </Panel>
+                            </VBox>
                         </uxap:blocks>
                     </uxap:ObjectPageSubSection>
                 </uxap:subSections>
@@ -42,22 +96,24 @@
                 <uxap:subSections>
                     <uxap:ObjectPageSubSection id="workflowSubSection" title="Process Flow">
                         <uxap:blocks>
-                            <suite:ProcessFlow id="processflow1" scrollable="false" foldedCorners="true" nodePress="onNodePress" nodes="{stepsModel>/nodes}" lanes="{stepsModel>/lanes}">
-                                <suite:nodes>
-                                    <suite:ProcessFlowNode laneId="{stepsModel>lane}" nodeId="{stepsModel>id}" title="{stepsModel>title}" titleAbbreviation="{stepsModel>names}" children="{stepsModel>children}" state="{stepsModel>state}" stateText="{stepsModel>stateText}" texts="{stepsModel>texts}" highlighted="{stepsModel>highlighted}" focused="{stepsModel>focused}" />
-                                </suite:nodes>
-                                <suite:lanes>
-                                    <suite:ProcessFlowLaneHeader laneId="{stepsModel>laneId}" iconSrc="{stepsModel>iconSrc}" text="{stepsModel>text}" position="{stepsModel>position}" />
-                                </suite:lanes>
-                            </suite:ProcessFlow>
-                            <suite:ProcessFlow id="processflow2" scrollable="false" nodes="{pf2>/nodes}" lanes="{pf2>/lanes}" headerPress="onHeaderPress">
-                                <suite:nodes>
-                                    <suite:ProcessFlowNode laneId="{pf2>lane}" nodeId="{pf2>id}" title="{pf2>title}" children="{pf2>children}" state="{pf2>state}" stateText="{pf2>stateText}" texts="{pf2>texts}" focused="{pf2>focused}" />
-                                </suite:nodes>
-                                <suite:lanes>
-                                    <suite:ProcessFlowLaneHeader laneId="{pf2>laneId}" iconSrc="{pf2>iconSrc}" text="{pf2>text}" position="{pf2>position}" />
-                                </suite:lanes>
-                            </suite:ProcessFlow>
+                            <VBox id="Process-wrapper" class="sapUiSmallMargin">
+                                <suite:ProcessFlow id="processflow1" scrollable="false" foldedCorners="true" nodePress="onNodePress" nodes="{stepsModel>/nodes}" lanes="{stepsModel>/lanes}">
+                                    <suite:nodes>
+                                        <suite:ProcessFlowNode laneId="{stepsModel>lane}" nodeId="{stepsModel>id}" title="{stepsModel>title}" titleAbbreviation="{stepsModel>names}" children="{stepsModel>children}" state="{stepsModel>state}" stateText="{stepsModel>stateText}" texts="{stepsModel>texts}" highlighted="{stepsModel>highlighted}" focused="{stepsModel>focused}" />
+                                    </suite:nodes>
+                                    <suite:lanes>
+                                        <suite:ProcessFlowLaneHeader laneId="{stepsModel>laneId}" iconSrc="{stepsModel>iconSrc}" text="{stepsModel>text}" position="{stepsModel>position}" />
+                                    </suite:lanes>
+                                </suite:ProcessFlow>
+                                <suite:ProcessFlow id="processflow2" scrollable="false" nodes="{pf2>/nodes}" lanes="{pf2>/lanes}" headerPress="onHeaderPress">
+                                    <suite:nodes>
+                                        <suite:ProcessFlowNode laneId="{pf2>lane}" nodeId="{pf2>id}" title="{pf2>title}" children="{pf2>children}" state="{pf2>state}" stateText="{pf2>stateText}" texts="{pf2>texts}" focused="{pf2>focused}" />
+                                    </suite:nodes>
+                                    <suite:lanes>
+                                        <suite:ProcessFlowLaneHeader laneId="{pf2>laneId}" iconSrc="{pf2>iconSrc}" text="{pf2>text}" position="{pf2>position}" />
+                                    </suite:lanes>
+                                </suite:ProcessFlow>
+                            </VBox>
                         </uxap:blocks>
                     </uxap:ObjectPageSubSection>
                 </uxap:subSections>
@@ -79,5 +135,4 @@
             </uxap:ObjectPageSection>
         </uxap:sections>
     </uxap:ObjectPageLayout>
-    </Page>
 </mvc:View>

@@ -147,6 +147,46 @@
                     "title": "PROJECT_NUMBER",
                     "description": "PROJECT_NUMBER"
                 },
+                "CTO_LABEL": {
+                    "type": "string",
+                    "title": "CTO_LABEL",
+                    "description": "CTO_LABEL"
+                },
+                "PROJECT_MATURITY": {
+                    "type": "string",
+                    "title": "PROJECT_MATURITY",
+                    "description": "PROJECT_MATURITY"
+                },
+                "TITLE": {
+                    "type": "string",
+                    "title": "TITLE",
+                    "description": "TITLE"
+                },
+                "ACCOUNTING_TYPE": {
+                    "type": "string",
+                    "title": "ACCOUNTING_TYPE",
+                    "description": "ACCOUNTING_TYPE"
+                },
+                "CURRENCY": {
+                    "type": "string",
+                    "title": "CURRENCY",
+                    "description": "CURRENCY"
+                },
+                "FOREX": {
+                    "type": "number",
+                    "title": "FOREX",
+                    "description": "FOREX"
+                },
+                "PERIMETER": {
+                    "type": "string",
+                    "title": "PERIMETER",
+                    "description": "PERIMETER"
+                },
+                "PLANT": {
+                    "type": "string",
+                    "title": "PLANT",
+                    "description": "PLANT"
+                },
                 "CAPEX": {
                     "type": "number",
                     "title": "CAPEX",
@@ -157,15 +197,20 @@
                     "title": "OPEX",
                     "description": "OPEX"
                 },
+                "LEASE": {
+                    "type": "boolean",
+                    "title": "LEASE",
+                    "description": "LEASE"
+                },
+                "CATEGORIES": {
+                    "type": "string",
+                    "title": "CATEGORIES",
+                    "description": "CATEGORIES"
+                },
                 "YEAR": {
                     "type": "number",
                     "title": "YEAR",
                     "description": "YEAR"
-                },
-                "PLANT": {
-                    "type": "string",
-                    "title": "PLANT",
-                    "description": "PLANT"
                 }
             }
         },
@@ -179,6 +224,46 @@
                     "title": "PROJECT_NUMBER",
                     "description": "PROJECT_NUMBER"
                 },
+                "CTO_LABEL": {
+                    "type": "string",
+                    "title": "CTO_LABEL",
+                    "description": "CTO_LABEL"
+                },
+                "PROJECT_MATURITY": {
+                    "type": "string",
+                    "title": "PROJECT_MATURITY",
+                    "description": "PROJECT_MATURITY"
+                },
+                "TITLE": {
+                    "type": "string",
+                    "title": "TITLE",
+                    "description": "TITLE"
+                },
+                "ACCOUNTING_TYPE": {
+                    "type": "string",
+                    "title": "ACCOUNTING_TYPE",
+                    "description": "ACCOUNTING_TYPE"
+                },
+                "CURRENCY": {
+                    "type": "string",
+                    "title": "CURRENCY",
+                    "description": "CURRENCY"
+                },
+                "FOREX": {
+                    "type": "number",
+                    "title": "FOREX",
+                    "description": "FOREX"
+                },
+                "PERIMETER": {
+                    "type": "string",
+                    "title": "PERIMETER",
+                    "description": "PERIMETER"
+                },
+                "PLANT": {
+                    "type": "string",
+                    "title": "PLANT",
+                    "description": "PLANT"
+                },
                 "CAPEX": {
                     "type": "number",
                     "title": "CAPEX",
@@ -189,15 +274,20 @@
                     "title": "OPEX",
                     "description": "OPEX"
                 },
-                "YEAR": {
+                "LEASE": {
                     "type": "number",
-                    "title": "YEAR",
-                    "description": "YEAR"
+                    "title": "LEASE",
+                    "description": "LEASE"
                 },
-                "PLANT": {
+                "CATEGORIES": {
                     "type": "string",
-                    "title": "PLANT",
-                    "description": "PLANT"
+                    "title": "CATEGORIES",
+                    "description": "CATEGORIES"
+                },
+                "YEAR_N": {
+                    "type": "number",
+                    "title": "YEAR_N",
+                    "description": "YEAR_N"
                 }
             }
         },
