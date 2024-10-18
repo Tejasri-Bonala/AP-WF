@@ -128,8 +128,8 @@
                                  <Label text="Comments" />
                                     <CheckBox id="Ack" text="I acknowledge that we have received your order and will process it based on the availability" />
                                     <FeedInput post="onPost"/>
-                                   <List showSeparators="Inner" items="{Feed>/EntryCollection}" >
-                                        <FeedListItem sender="{Feed>Author}" info="{Feed>Type}" icon="{Feed>AuthorPicUrl}" timestamp="{Feed>Date}" text="{Feed>Text}" />
+                                   <List showSeparators="Inner" >
+                                        <FeedListItem sender="{context>/comments/Author}" info="Reply" timestamp="18.10.2024" text="Draft" />
                                     </List>
                                 </VBox>
                             </uxap:blocks>

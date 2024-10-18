@@ -37,9 +37,7 @@ sap.ui.define(
 
         // create new entry
         var oEntry = {
-          Author: "User",
-          Type: "Reply",
-          Date: "" + sDate,
+          Author: "Saurabh",
           Text: sValue
         };
 
