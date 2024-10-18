@@ -77,7 +77,11 @@
             "stepsModel": {
                 "type": "sap.ui.model.json.JSONModel",
                 "uri": "model/status.json"
-            }
+            },
+            "Feed": {
+				"type": "sap.ui.model.json.JSONModel",
+				"uri": "./model/Feed.json"
+           }
         },
         "resources": {
             "css": [
@@ -211,6 +215,11 @@
                     "type": "string",
                     "title": "YEAR",
                     "description": "YEAR"
+                },
+                "comments":{
+                    "type": "object",
+                    "title": "COMMENTS",
+                    "description": "COMMENTS"
                 }
             }
         },
@@ -288,6 +297,11 @@
                     "type": "string",
                     "title": "YEAR_N",
                     "description": "YEAR_N"
+                },
+                "comments":{
+                    "type": "string",
+                    "title": "COMMENTS",
+                    "description": "COMMENTS"
                 }
             }
         },
