@@ -36,44 +36,46 @@
                                         </form:SimpleForm>
                                     </Panel>
                                     <!-- Financial Information Section -->
-                                    <Panel headerText="Financial Information" width="100%">
-                                        <form:SimpleForm editable="false" width="100%">
-                                            <form:content>
-                                                <Label text="Title" />
-                                                <Input id="title1" value="{context>/title}" width="50%" editable="false" />
+                                   <Panel headerText="Financial Information" width="100%">
+  <form:SimpleForm editable="false" width="100%">
+    <form:content>
+      <Label text="Title" />
+      <Input id="title1" value="{context>/title}" width="50%" editable="false" />
 
-                                                <Label text="Accounting Type" />
-                                                <Input id="accountingType1" value="{context>/accounting_type}" width="50%" editable="false" />
+      <Label text="Accounting Type" />
+      <Input id="accountingType1" value="{context>/accounting_type}" width="50%" editable="false" />
 
-                                                <Label text="Currency" />
-                                                <Input id="currency1" value="{context>/currency}" width="50%" editable="false" />
+      <Label text="Currency" />
+      <Input id="currency1" value="{context>/currency}" width="50%" editable="false" />
 
-                                                <Label text="Forex (vs €)" />
-                                                <Input id="forex1" value="{context>/forex}" width="50%" editable="false" />
-                                            </form:content>
-                                        </form:SimpleForm>
-                                    </Panel>
-                                    <!-- Project Details Section -->
-                                    <Panel headerText="Project Details" width="100%">
-                                        <form:SimpleForm editable="false" width="100%">
-                                            <form:content>
-                                                <Label text="Perimeter" />
-                                                <Input id="perimeter1" value="{context>/perimeter}" width="50%" editable="false" />
+      <Label text="Forex (vs €)" />
+      <Input id="forex1" value="{context>/forex}" width="50%" editable="false" />
+    </form:content>
+  </form:SimpleForm>
+</Panel>
 
-                                                <Label text="Plant" />
-                                                <Input id="plant1" value="{context>/plant}" width="50%" editable="false" />
+<!-- Project Details Section -->
+<Panel headerText="Project Details" width="100%">
+  <form:SimpleForm editable="false" width="100%">
+    <form:content>
+      <Label text="Perimeter" />
+      <Input id="perimeter1" value="{context>/perimeter}" width="50%" editable="false" />
 
-                                                <Label text="Capex" />
-                                                <Input id="capex1" value="{context>/capex}" width="50%" editable="false" />
+      <Label text="Plant" />
+      <Input id="plant1" value="{context>/plant}" width="50%" editable="false" />
 
-                                                <Label text="Opex" />
-                                                <Input id="opex1" value="{context>/opex}" width="50%" editable="false" />
+      <Label text="Capex" visible="{= ${context>/accounting_type} === 'Capex' || ${context>/accounting_type} === 'Capex/Opex'}" />
+      <Input id="capex1" value="{context>/capex}" width="50%" editable="false" visible="{= ${context>/accounting_type} === 'Capex' || ${context>/accounting_type} === 'Capex/Opex'}" />
 
-                                                <Label text="Lease" />
-                                                <Input id="lease1" value="{context>/lease}" width="50%" editable="false" />
-                                            </form:content>
-                                        </form:SimpleForm>
-                                    </Panel>
+      <Label text="Opex" visible="{= ${context>/accounting_type} === 'Opex' || ${context>/accounting_type} === 'Capex/Opex'}" />
+      <Input id="opex1" value="{context>/opex}" width="50%" editable="false" visible="{= ${context>/accounting_type} === 'Opex' || ${context>/accounting_type} === 'Capex/Opex'}" />
+
+      <Label text="Lease" visible="{= ${context>/accounting_type} === 'Lease'}" />
+      <Input id="lease1" value="{context>/lease}" width="50%" editable="false" visible="{= ${context>/accounting_type} === 'Lease'}" />
+    </form:content>
+  </form:SimpleForm>
+</Panel>
+
 
                                     <!-- Categories Section -->
                                     <Panel headerText="Categories" width="100%">
