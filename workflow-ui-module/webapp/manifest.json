@@ -44,7 +44,7 @@
         }
     },
     "sap.ui5": {
-        "flexEnabled": true,
+        "flexEnabled": false,
         "dependencies": {
             "minUI5Version": "1.82.2",
             "libs": {
@@ -142,73 +142,73 @@
             "title": "input",
             "type": "object",
             "properties": {
-                "PROJECT_NUMBER": {
+                "projectNumber": {
                     "type": "string",
                     "title": "PROJECT_NUMBER",
                     "description": "PROJECT_NUMBER"
                 },
-                "CTO_LABEL": {
+                "cto_label": {
                     "type": "string",
                     "title": "CTO_LABEL",
                     "description": "CTO_LABEL"
                 },
-                "PROJECT_MATURITY": {
+                "project_maturity": {
                     "type": "string",
                     "title": "PROJECT_MATURITY",
                     "description": "PROJECT_MATURITY"
                 },
-                "TITLE": {
+                "title": {
                     "type": "string",
                     "title": "TITLE",
                     "description": "TITLE"
                 },
-                "ACCOUNTING_TYPE": {
+                "accounting_type": {
                     "type": "string",
                     "title": "ACCOUNTING_TYPE",
                     "description": "ACCOUNTING_TYPE"
                 },
-                "CURRENCY": {
+                "currency": {
                     "type": "string",
                     "title": "CURRENCY",
                     "description": "CURRENCY"
                 },
-                "FOREX": {
-                    "type": "number",
+                "forex": {
+                    "type": "string",
                     "title": "FOREX",
                     "description": "FOREX"
                 },
-                "PERIMETER": {
+                "perimeter": {
                     "type": "string",
                     "title": "PERIMETER",
                     "description": "PERIMETER"
                 },
-                "PLANT": {
+                "plant": {
                     "type": "string",
                     "title": "PLANT",
                     "description": "PLANT"
                 },
-                "CAPEX": {
-                    "type": "number",
+                "capex": {
+                    "type": "string",
                     "title": "CAPEX",
                     "description": "CAPEX"
                 },
-                "OPEX": {
-                    "type": "number",
+                "opex": {
+                    "type": "string",
                     "title": "OPEX",
                     "description": "OPEX"
                 },
-                "LEASE": {
-                    "type": "boolean",
+                "lease": {
+                    "type": "string",
                     "title": "LEASE",
                     "description": "LEASE"
                 },
-                "CATEGORIES": {
+                "categories": {
                     "type": "string",
                     "title": "CATEGORIES",
                     "description": "CATEGORIES"
                 },
-                "YEAR": {
-                    "type": "number",
+                "year": {
+                    "type": "string",
                     "title": "YEAR",
                     "description": "YEAR"
                 }
@@ -219,73 +219,73 @@
             "title": "output",
             "type": "object",
             "properties": {
-                "PROJECT_NUMBER": {
+                "projectNumber": {
                     "type": "string",
                     "title": "PROJECT_NUMBER",
                     "description": "PROJECT_NUMBER"
                 },
-                "CTO_LABEL": {
+                "cto_label": {
                     "type": "string",
                     "title": "CTO_LABEL",
                     "description": "CTO_LABEL"
                 },
-                "PROJECT_MATURITY": {
+                "project_maturity": {
                     "type": "string",
                     "title": "PROJECT_MATURITY",
                     "description": "PROJECT_MATURITY"
                 },
-                "TITLE": {
+                "title": {
                     "type": "string",
                     "title": "TITLE",
                     "description": "TITLE"
                 },
-                "ACCOUNTING_TYPE": {
+                "accounting_type": {
                     "type": "string",
                     "title": "ACCOUNTING_TYPE",
                     "description": "ACCOUNTING_TYPE"
                 },
-                "CURRENCY": {
+                "currency": {
                     "type": "string",
                     "title": "CURRENCY",
                     "description": "CURRENCY"
                 },
-                "FOREX": {
-                    "type": "number",
+                "forex": {
+                    "type": "string",
                     "title": "FOREX",
                     "description": "FOREX"
                 },
-                "PERIMETER": {
+                "perimeter": {
                     "type": "string",
                     "title": "PERIMETER",
                     "description": "PERIMETER"
                 },
-                "PLANT": {
+                "plant": {
                     "type": "string",
                     "title": "PLANT",
                     "description": "PLANT"
                 },
-                "CAPEX": {
-                    "type": "number",
+                "capex": {
+                    "type": "string",
                     "title": "CAPEX",
                     "description": "CAPEX"
                 },
-                "OPEX": {
-                    "type": "number",
+                "opex": {
+                    "type": "string",
                     "title": "OPEX",
                     "description": "OPEX"
                 },
-                "LEASE": {
-                    "type": "number",
+                "lease": {
+                    "type": "string",
                     "title": "LEASE",
                     "description": "LEASE"
                 },
-                "CATEGORIES": {
+                "categories": {
                     "type": "string",
                     "title": "CATEGORIES",
                     "description": "CATEGORIES"
                 },
-                "YEAR_N": {
-                    "type": "number",
+                "year": {
+                    "type": "string",
                     "title": "YEAR_N",
                     "description": "YEAR_N"
                 }
