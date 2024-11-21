@@ -9,25 +9,22 @@ sap.ui.define(
 
 
     return BaseController.extend("com.aperam.workflowuimodule.controller.App", {
-      determineFieldVisibility: function (accountingType, fieldType) {
-        switch (accountingType) {
-          case "Capex":
-            return fieldType === "Capex";
-          case "Opex":
-            return fieldType === "Opex";
-          case "Lease":
-            return fieldType === "Lease";
-          case "Capex/Opex":
-            return fieldType === "Capex" || fieldType === "Opex";
-          default:
-            return false;
+     
+      formatYear: function (sValue) {
+        if (sValue) {
+            return sValue.replace(",", ""); 
         }
-      },
+        return sValue;
+    },
       onInit() {
-        //   var oFeedModel = new sap.ui.model.json.JSONModel({
-        //     EntryCollection: []
-        // });
-        // this.getView().setModel(oFeedModel, "Feed");
+        let oIconTabBar = this.byId("iconTabBar");
+        oIconTabBar.setSelectedKey("BasicInfo");
+
+        let oBasicInfoTab = oIconTabBar.getItems().find(item => item.getKey() === "BasicInfo");
+        if (oBasicInfoTab) {
+            oBasicInfoTab.getDomRef().focus();
+        }
+       
       },
       onPost: function (oEvent) {
         var oFormat = DateFormat.getDateTimeInstance({ style: "medium" });

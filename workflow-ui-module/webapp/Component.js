@@ -38,7 +38,7 @@ sap.ui.define(
               type: "accept", // (Optional property) Define for positive appearance
             },
             function () {
-              this.completeTask(true);
+              this.completeTask(false);
             },
             this
           );

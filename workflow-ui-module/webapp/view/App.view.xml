@@ -1,142 +1,519 @@
-<mvc:View controllerName="com.aperam.workflowuimodule.controller.App"
-    xmlns:html="http://www.w3.org/1999/xhtml"
-    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+<mvc:View xmlns:mvc="com.aperam.workflowuimodule.controller.App"
+    xmlns="sap.m"
+    xmlns:f="sap.ui.layout.form"
     xmlns:l="sap.ui.layout"
     xmlns:core="sap.ui.core"
-    xmlns:form="sap.ui.layout.form"
-    xmlns:smartForm="sap.ui.comp.smartform"
-    xmlns:smartField="sap.ui.comp.smartfield"
-    xmlns:uxap="sap.uxap"
     xmlns:suite="sap.suite.ui.commons"
-    xmlns="sap.m">
-    <App>
-        <uxap:ObjectPageLayout id="objectPageLayout" showTitleInHeaderContent="false">
-            <uxap:headerTitle>
-                <uxap:ObjectPageHeader objectTitle="Order Confirmation" objectSubtitle="A new order has been received. Please review and confirm whether the requirements can be met or not." />
-            </uxap:headerTitle>
-            <uxap:sections>
-                <uxap:ObjectPageSection id="information">
-                    <uxap:subSections>
-                        <uxap:ObjectPageSubSection id="infoSubSection" title="Request Information">
-                            <uxap:blocks>
-                                <VBox>
-                                    <!-- General Information Section -->
-                                    <Panel headerText="General Information" width="100%">
-                                        <form:SimpleForm editable="false" width="100%">
-                                            <form:content>
-                                                <Label text="Project Number" />
-                                                <Input id="projectNumber1" value="{context>/projectNumber}" width="50%" editable="false" />
+    xmlns:grid="sap.ui.layout.cssgrid"
+    xmlns:u="sap.ui.unified"
+    xmlns:t="sap.ui.table"
+    xmlns:upload="sap.m.upload"
+    xmlns:tnt="sap.tnt"
+    xmlns:mdcat="sap.ui.mdc.actiontoolbar"
+    xmlns:mdc="sap.ui.mdc"
+    xmlns:mdct="sap.ui.mdc.table"
+    xmlns:vm="sap.ui.fl.variants">
+    <IconTabBar id="idIconTabBarMulti" expanded="{device>/isNoPhone}" class="sapUiResponsiveContentPadding">
+        <items>
+            <IconTabFilter key="BasicInfo" text="Basic Info">
+                <Panel id="gridLayout" expandable="true" expanded="true" headerText="General Information" width="auto" class="sapUiResponsiveMargin">
+                    <grid:CSSGrid class="gridContainer" gridTemplateRows="auto auto auto auto" gridTemplateColumns="repeat(3, 1fr)">
+                        <grid:items>
+                            <VBox class="gridItem sapUiMediumMarginEnd">
+                                <Label text="Project Number" class= "sapUiSmallMarginBottom" />
+                                <Input id="projectNumber" value="{context>/projectnumber}" editable="false" width="100%"/>
+                            </VBox>
+                            <VBox class="gridItem sapUiMediumMarginEnd">
+                                <HBox>
+                                    <Label text="CTO Label" class="sapUiTinyMarginEnd" />
+                                    <ImageContent src="sap-icon://information" description="{i18n>ctolabel}" press="press" class="smallIcon  sapUiTinyMarginBottom sapUiTinyMarginStart"/>
+                                </HBox>
 
-                                                <Label text="CTO Label" />
-                                                <Input id="ctoLabel1" value="{context>/cto_label}" width="50%" editable="false" />
+                                  <Input id="ctoLabel" value="{context>/ctolabel}" editable="false" width="100%"/>
+                            </VBox>
+                            <VBox class="gridItem sapUiMediumMarginEnd">
+                                <HBox >
+                                    <Label text="Project Maturity" class="sapUiTinyMarginEnd"/>
+                                    <ImageContent src="sap-icon://information" description="{i18n>ProjectMaturity}" press="press" class="smallIcon  sapUiTinyMarginBottom sapUiTinyMarginStart"/>
 
-                                                <Label text="Project Maturity" />
-                                                <Input id="projectMaturity1" value="{context>/project_maturity}" width="50%" editable="false" />
-                                            </form:content>
-                                        </form:SimpleForm>
-                                    </Panel>
-                                    <!-- Financial Information Section -->
-                                    <Panel headerText="Financial Information" width="100%">
-                                        <form:SimpleForm editable="false" width="100%">
-                                            <form:content>
-                                                <Label text="Title" />
-                                                <Input id="title1" value="{context>/title}" width="50%" editable="false" />
+                                </HBox>
+                                 <Input id="projectMaturity" value="{context>/projectmaturity}" editable="false" width="100%"/>
+                            </VBox>
 
-                                                <Label text="Accounting Type" />
-                                                <Input id="accountingType1" value="{context>/accounting_type}" width="50%" editable="false" />
+                        </grid:items>
+                    </grid:CSSGrid>
 
-                                                <Label text="Currency" />
-                                                <Input id="currency1" value="{context>/currency}" width="50%" editable="false" />
+                    <VBox width="100%" height="1px" class="separator" />
+                    <grid:CSSGrid class="gridContainer" gridTemplateRows="auto auto auto auto" gridTemplateColumns="repeat(3, 1fr)">
+                        <grid:items>
+                            <VBox class="gridItem sapUiMediumMarginEnd">
+                                <Label text="Title" class= "sapUiSmallMarginBottom "/>
+                                <Input id="title" value="{context>/title}" editable="false" width="100%"/>
+                            </VBox>
+                            <VBox class="gridItem sapUiMediumMarginEnd">
+                                <HBox>
+                                    <Label text="Perimeter" class="sapUiTinyMarginEnd"/>
+                                    <ImageContent src="sap-icon://information" description="{i18n>perimeter}" press="press" class="smallIcon  sapUiTinyMarginBottom sapUiTinyMarginStart"/>
+                                </HBox>
+                                  <Input id="perimeter" value="{context>/perimeter}" editable="false" width="100%"/>
+                            </VBox>
 
-                                                <Label text="Forex (vs €)" />
-                                                <Input id="forex1" value="{context>/forex}" width="50%" editable="false" />
-                                            </form:content>
-                                        </form:SimpleForm>
-                                    </Panel>
+                            <VBox class="gridItem sapUiMediumMarginEnd">
+                                <Label text="Plant" class= "sapUiSmallMarginBottom"/>
+                                 <Input id="plant" value="{context>/plant}" editable="false" width="100%"/>
+                            </VBox>
+                        </grid:items>
+                    </grid:CSSGrid>
 
-                                    <!-- Project Details Section -->
-                                    <Panel headerText="Project Details" width="100%">
-                                        <form:SimpleForm editable="false" width="100%">
-                                            <form:content>
-                                                <Label text="Perimeter" />
-                                                <Input id="perimeter1" value="{context>/perimeter}" width="50%" editable="false" />
+                    <VBox width="100%" height="1px" class="separator" />
+                    <grid:CSSGrid class="gridContainer" gridTemplateRows="auto auto auto auto" gridTemplateColumns="repeat(3, 1fr)">
+                        <grid:items>
+                            <VBox class="gridItem sapUiMediumMarginEnd">
+                                <HBox >
+                                    <Label text="Investment Program Number" class="sapUiTinyMarginEnd"/>
+                                    <ImageContent src="sap-icon://information" description="{i18n>InvestmentProgramNumber}" press="press" class="smallIcon  sapUiTinyMarginBottom sapUiTinyMarginStart"/>
+                                </HBox>
+                                <Input id="IPR" width="100%" editable="false" value="{context>/investmentprogramnumber}" />
+                            </VBox>
+                            <VBox class="gridItem sapUiMediumMarginEnd">
+                                <HBox >
+                                    <Label text="Investment Program Title" class="sapUiTinyMarginEnd" />
+                                    <ImageContent src="sap-icon://information" description="{i18n>investmentprogramtitle}" press="press" class="smallIcon  sapUiTinyMarginBottom sapUiTinyMarginStart"/>
+                                </HBox>
+                                <Input id="IPT" width="100%" editable="false" value="{context>/investmentprogramtitle}" />
+                            </VBox>
+                            <VBox class="gridItem sapUiMediumMarginEnd">
+                                <HBox >
+                                    <Label text="Investment Request Number" class="sapUiTinyMarginEnd" />
+                                    <ImageContent src="sap-icon://information" description="{i18n>investmentprogramtitle}" press="press" class="smallIcon  sapUiTinyMarginBottom sapUiTinyMarginStart"/>
+                                </HBox>
+                                <Input id="IRNo" placeholder="Enter Request Number" width="100%" editable="false" value="{context>/investmentrequestno}"/>
+                            </VBox>
+                        </grid:items>
+                    </grid:CSSGrid>
+                    <VBox width="100%" height="1px" class="separator" />
+                    <grid:CSSGrid class="gridContainer" gridTemplateRows="auto auto auto auto" gridTemplateColumns="repeat(3, 1fr)">
+                        <grid:items>
+                            <VBox class="gridItem sapUiMediumMarginEnd">
+                                <Label text="Accounting Type" class= "sapUiSmallMarginBottom" />
+                                 <Input id="accountingType" value="{context>/accountingtype}" editable="false" width="100%"/>
+                            </VBox>
+                            <VBox class="gridItem sapUiMediumMarginEnd">
+                                <HBox >
+                                    <Label text="Currency" class="sapUiTinyMarginEnd"/>
+                                    <ImageContent src="sap-icon://information" description="{i18n>currency}" press="press" class="smallIcon  sapUiTinyMarginBottom sapUiTinyMarginStart"/>
+                                </HBox>
+                                 <Input id="currency" value="{context>/currency}" editable="false" width="100%"/>
+                            </VBox>
+                            <VBox class="gridItem sapUiMediumMarginEnd" id="forexField">
+                                <HBox >
+                                    <Label text="Forex" class="sapUiTinyMarginEnd"/>
+                                    <ImageContent src="sap-icon://information" description="{i18n>forex}" press="press" class="smallIcon  sapUiTinyMarginBottom sapUiTinyMarginStart"/>
 
-                                                <Label text="Plant" />
-                                                <Input id="plant1" value="{context>/plant}" width="50%" editable="false" />
+                                </HBox>
+                                <Input id="forex" width="100%" editable="false" value="{context>/forex}"/>
+                            </VBox>
+                        </grid:items>
+                    </grid:CSSGrid>
+                    <VBox width="100%" height="1px" class="separator" />
+                    <grid:CSSGrid class="gridContainer" gridTemplateRows="auto auto auto auto auto" gridTemplateColumns="repeat(3, 1fr)">
+                        <grid:items>
+                            <VBox class="gridItem sapUiMediumMarginEnd">
+                                <HBox>
+                                    <Label text="Capex" class="sapUiTinyMarginEnd"/>
+                                    <ImageContent src="sap-icon://information" description="{i18n>capex}" press="press" class="smallIcon  sapUiTinyMarginBottom sapUiTinyMarginStart"/>
+                                </HBox>
+                                <Input id="capex" value="{context>/capex}" editable="false" width="100%" />
+                            </VBox>
 
-                                                <Label text="Capex" visible="{= ${context>/accounting_type} === 'Capex' || ${context>/accounting_type} === 'Capex/Opex'}" />
-                                                <Input id="capex1" value="{context>/capex}" width="50%" editable="false" visible="{= ${context>/accounting_type} === 'Capex' || ${context>/accounting_type} === 'Capex/Opex'}" />
+                            <VBox class="gridItem sapUiMediumMarginEnd">
+                                <HBox>
+                                    <Label text="Capex In Local Currency" class="sapUiTinyMarginEnd"/>
+                                    <ImageContent src="sap-icon://information" description="{i18n>capex}" press="press" class="smallIcon  sapUiTinyMarginBottom sapUiTinyMarginStart"/>
 
-                                                <Label text="Opex" visible="{= ${context>/accounting_type} === 'Opex' || ${context>/accounting_type} === 'Capex/Opex'}" />
-                                                <Input id="opex1" value="{context>/opex}" width="50%" editable="false" visible="{= ${context>/accounting_type} === 'Opex' || ${context>/accounting_type} === 'Capex/Opex'}" />
+                                </HBox>
+                                <Input id="capexl" value="{context>/capexlc}" editable="false" width="100%" />
+                            </VBox>
+                            <VBox class="gridItem sapUiMediumMarginEnd" >
+                                <HBox>
+                                    <Label text="Opex" class="sapUiTinyMarginEnd"/>
+                                    <ImageContent src="sap-icon://information" description="{i18n>opex}" press="press" class="smallIcon  sapUiTinyMarginBottom sapUiTinyMarginStart"/>
+                                </HBox>
+                                <Input id="opex" value="{context>/opex}" editable="false" width="100%" />
+                            </VBox>
 
-                                                <Label text="Lease" visible="{= ${context>/accounting_type} === 'Lease'}" />
-                                                <Input id="lease1" value="{context>/lease}" width="50%" editable="false" visible="{= ${context>/accounting_type} === 'Lease'}" />
-                                            </form:content>
-                                        </form:SimpleForm>
-                                    </Panel>
+                            <VBox class="gridItem sapUiMediumMarginEnd" >
+                                <HBox>
+                                    <Label text="Opex In Local Currency" class="sapUiTinyMarginEnd"/>
+                                    <core:Icon src="sap-icon://information" press="onopexl"/>
+                                </HBox>
+                                <Input id="opexl" value="{context>/opexlc}" editable="false" width="100%" />
+                            </VBox>
+                            <VBox class="gridItem sapUiMediumMarginEnd" >
+                                <HBox>
+                                    <Label text="Lease" class="sapUiTinyMarginEnd"/>
+                                    <ImageContent src="sap-icon://information" description="{i18n>lease}" press="press" class="smallIcon  sapUiTinyMarginBottom sapUiTinyMarginStart"/>
+                                </HBox>
+                                <Input id="lease" value="{context>/lease}" editable="false" width="100%" />
+                            </VBox>
+
+                            <VBox class="gridItem sapUiMediumMarginEnd" >
+                                <HBox>
+                                    <Label text="Month if Accounting type is Lease" class="sapUiTinyMarginEnd"/>
+                                    <ImageContent src="sap-icon://information" description="{i18n>leasemonth}" press="press" class="smallIcon  sapUiTinyMarginBottom sapUiTinyMarginStart"/>
+                                </HBox>
+                                 <Input id="month" value="{context>/leasemonth}" editable="false" width="100%"/>
+                            </VBox>
+
+                            <VBox class="gridItem sapUiMediumMarginEnd">
+                                <Label text="Lease Start Date" class= "sapUiSmallMarginBottom"/>
+                                <Input id="lstartdate" value="{context>/leasestartdate}" editable="false" width="100%"/>
+                            </VBox>
+
+                        </grid:items>
+                    </grid:CSSGrid>
+                    <VBox width="100%" height="1px" class="separator"/>
+                    <grid:CSSGrid class="gridContainer" gridTemplateRows="auto" gridTemplateColumns="2fr 1fr">
+                        <grid:items>
+                            <VBox class="gridItem sapUiMediumMarginEnd" width="100%">
+                                <HBox >
+                                    <Label text="Categories" class="sapUiTinyMarginEnd"/>
+                                    <ImageContent src="sap-icon://information" description="{i18n>categories}" press="press" class="smallIcon  sapUiTinyMarginBottom sapUiTinyMarginStart"/>
+                                </HBox>
+                                   <Input id="categories" value="{context>/categories}" editable="false" width="45rem"/>
+                            </VBox>
+                            <VBox class="gridItem sapUiMediumMarginEnd" width="100%">
+                                <HBox>
+                                    <Label text="Year" class="sapUiTinyMarginEnd"/>
+                                    <ImageContent src="sap-icon://information" description="{i18n>Year}" press="press" class="smallIcon sapUiTinyMarginBottom sapUiTinyMarginStart"/>
+                                </HBox>
+                                <Input value="{path: 'context>/year', formatter: '.formatYear'}" width="100%" id="yearN" editable="false" maxLength="4"/>
+                            </VBox>
+
+                        </grid:items>
+                    </grid:CSSGrid>
 
 
-                                    <!-- Categories Section -->
-                                    <Panel headerText="Categories" width="100%">
-                                        <form:SimpleForm editable="false" width="100%">
-                                            <form:content>
-                                                <Label text="Categories" />
-                                                <Input id="categories1" value="{context>/categories}" width="50%" editable="false" />
+                    <VBox width="100%" height="1px" class="separator" />
 
-                                                <Label text="Year N" />
-                                                <Input id="yearN" value="{context>/year}" width="50%" editable="false" />
-                                            </form:content>
-                                        </form:SimpleForm>
-                                    </Panel>
-                                </VBox>
-                            </uxap:blocks>
-                        </uxap:ObjectPageSubSection>
-                    </uxap:subSections>
-                </uxap:ObjectPageSection>
-                <uxap:ObjectPageSection id="workflowSection">
-                    <uxap:subSections>
-                        <uxap:ObjectPageSubSection id="workflowSubSection" title="Process Flow">
-                            <uxap:blocks>
-                                <VBox id="Process-wrapper" class="sapUiSmallMargin">
-                                    <suite:ProcessFlow id="processflow1" scrollable="false" foldedCorners="true" nodePress="onNodePress" nodes="{stepsModel>/nodes}" lanes="{stepsModel>/lanes}">
-                                        <suite:nodes>
-                                            <suite:ProcessFlowNode laneId="{stepsModel>lane}" nodeId="{stepsModel>id}" title="{stepsModel>title}" titleAbbreviation="{stepsModel>names}" children="{stepsModel>children}" state="{stepsModel>state}" stateText="{stepsModel>stateText}" texts="{stepsModel>texts}" highlighted="{stepsModel>highlighted}" focused="{stepsModel>focused}" />
-                                        </suite:nodes>
-                                        <suite:lanes>
-                                            <suite:ProcessFlowLaneHeader laneId="{stepsModel>laneId}" iconSrc="{stepsModel>iconSrc}" text="{stepsModel>text}" position="{stepsModel>position}" />
-                                        </suite:lanes>
-                                    </suite:ProcessFlow>
-                                    <suite:ProcessFlow id="processflow2" scrollable="false" nodes="{pf2>/nodes}" lanes="{pf2>/lanes}" headerPress="onHeaderPress">
-                                        <suite:nodes>
-                                            <suite:ProcessFlowNode laneId="{pf2>lane}" nodeId="{pf2>id}" title="{pf2>title}" children="{pf2>children}" state="{pf2>state}" stateText="{pf2>stateText}" texts="{pf2>texts}" focused="{pf2>focused}" />
-                                        </suite:nodes>
-                                        <suite:lanes>
-                                            <suite:ProcessFlowLaneHeader laneId="{pf2>laneId}" iconSrc="{pf2>iconSrc}" text="{pf2>text}" position="{pf2>position}" />
-                                        </suite:lanes>
-                                    </suite:ProcessFlow>
-                                </VBox>
-                            </uxap:blocks>
-                        </uxap:ObjectPageSubSection>
-                    </uxap:subSections>
-                </uxap:ObjectPageSection>
-                <uxap:ObjectPageSection id="commentsSection">
-                    <uxap:subSections>
-                        <uxap:ObjectPageSubSection id="commentsSubSectionFeedback" title="Feedback">
-                            <uxap:blocks>
-                                <VBox id="comment-wrapper" class="sapUiSmallMargin">
-                                 <Label text="Comments" />
-                                    <CheckBox id="Ack" text="I acknowledge that we have received your order and will process it based on the availability" />
-                                    <FeedInput post="onPost"/>
-                                   <List showSeparators="Inner" >
-                                        <FeedListItem sender="{context>/comments/Author}" info="Reply" timestamp="18.10.2024" text="Draft" />
-                                    </List>
-                                </VBox>
-                            </uxap:blocks>
-                        </uxap:ObjectPageSubSection>
-                    </uxap:subSections>
-                </uxap:ObjectPageSection>
-            </uxap:sections>
-        </uxap:ObjectPageLayout>
-    </App>
+                    <grid:CSSGrid class="gridContainer sapUiDemoVBoxSizeAdjustments" gridTemplateRows="auto" gridTemplateColumns="repeat(3, 1fr)">
+                        <grid:items>
+                            <VBox class="gridItem sapUiMediumMarginEnd">
+                                <HBox>
+                                    <Label text="Forecast Current Year N" class="sapUiTinyMarginEnd" />
+                                    <ImageContent src="sap-icon://information" description="{i18n>forecastn}" press="press" class="smallIcon  sapUiTinyMarginBottom sapUiTinyMarginStart"/>
+                                </HBox>
+                                <Input id="yearF" width="100%" value="{context>/forecastyearn}" editable="false"/>
+                            </VBox>
+
+                            <VBox class="gridItem sapUiMediumMarginEnd">
+                                <HBox>
+                                    <Label text="Forecast Current Year N In Local Currency" class="sapUiTinyMarginEnd" />
+                                    <ImageContent src="sap-icon://information" description="{i18n>forecastn}" press="press" class="smallIcon  sapUiTinyMarginBottom sapUiTinyMarginStart"/>
+                                </HBox>
+                                <Input id="yearcf1" width="100%" value="{context>/forecastyearnlc}" editable="false" />
+                            </VBox>
+                        </grid:items>
+                    </grid:CSSGrid>
+
+                    <grid:CSSGrid class="gridContainer sapUiDemoVBoxSizeAdjustments" gridTemplateRows="auto" gridTemplateColumns="repeat(3, 1fr)">
+                        <grid:items>
+                            <VBox class="gridItem sapUiMediumMarginEnd">
+
+                                <HBox>
+                                    <Label text="Forecast Current Year N+1" class="sapUiTinyMarginEnd" />
+                                    <ImageContent src="sap-icon://information" description="{i18n>forecastn}" press="press" class="smallIcon  sapUiTinyMarginBottom sapUiTinyMarginStart"/>
+                                </HBox>
+                                <Input id="yearF1" width="100%" value="{context>/forecastyearn1}" editable="false" />
+                            </VBox>
+                            <VBox class="gridItem sapUiMediumMarginEnd">
+
+                                <HBox>
+                                    <Label text="Forecast Current Year N+1 In Local Currency" class="sapUiTinyMarginEnd" />
+                                    <ImageContent src="sap-icon://information" description="{i18n>forecastn}" press="press" class="smallIcon  sapUiTinyMarginBottom sapUiTinyMarginStart"/>
+                                </HBox>
+                                <Input id="yearcf2" width="100%" value="{context>/forecastyearn1lc}" editable="false" />
+                            </VBox>
+                        </grid:items>
+                    </grid:CSSGrid>
+
+                    <grid:CSSGrid class="gridContainer sapUiDemoVBoxSizeAdjustments" gridTemplateRows="auto" gridTemplateColumns="repeat(3, 1fr)">
+                        <grid:items>
+                            <VBox class="gridItem sapUiMediumMarginEnd">
+
+                                <HBox>
+                                    <Label text="Forecast Current Year N+2" class="sapUiTinyMarginEnd" />
+                                    <ImageContent src="sap-icon://information" description="{i18n>forecastn}" press="press" class="smallIcon  sapUiTinyMarginBottom sapUiTinyMarginStart"/>
+                                </HBox>
+                                <Input id="yearF2" width="100%" value="{context>/forecastyearn2}" editable="false" />
+                            </VBox>
+                            <VBox class="gridItem sapUiMediumMarginEnd">
+
+                                <HBox>
+                                    <Label text="Forecast Current Year N+2 In Local Currency" class="sapUiTinyMarginEnd" />
+                                    <ImageContent src="sap-icon://information" description="{i18n>forecastn}" press="press" class="smallIcon  sapUiTinyMarginBottom sapUiTinyMarginStart"/>
+                                </HBox>
+                                <Input id="yearcf3" width="100%" value="{context>/forecastyearn2lc}" editable="false"/>
+                            </VBox>
+                        </grid:items>
+                    </grid:CSSGrid>
+                </Panel>
+                <Panel id="gridLayout1" expandable="true" expanded="true" headerText="Deliverables" width="auto" class="sapUiResponsiveMargin">
+                    <grid:CSSGrid id="grid1" class="gridContainer" gridTemplateRows="auto" gridTemplateColumns="repeat(3, 1fr)">
+                        <grid:items>
+                            <VBox class="gridItem sapUiMediumMarginEnd" id="VBox1">
+                                <HBox>
+                                    <Label text="IRR" class="sapUiTinyMarginEnd" />
+                                    <ImageContent src="sap-icon://information" description="{i18n>irr}" press="press" class="smallIcon sapUiTinyMarginBottom sapUiTinyMarginStart"/>
+                                </HBox>
+                                <Input id="irr" width="100%" editable="false" value="{context>/irr}" />
+                            </VBox>
+
+                            <VBox class="gridItem sapUiMediumMarginEnd" id="VBox8">
+                                <HBox>
+                                    <Label text="ROI" class="sapUiTinyMarginEnd" />
+                                    <ImageContent src="sap-icon://information" description="{i18n>roi}" press="press" class="smallIcon sapUiTinyMarginBottom sapUiTinyMarginStart"/>
+                                </HBox>
+                                <Input id="roi" width="100%" editable="false" value="{context>/roi}" />
+                            </VBox>
+                        </grid:items>
+                    </grid:CSSGrid>
+
+                    <grid:CSSGrid id="gridd1" class="gridContainer" gridTemplateRows="auto" gridTemplateColumns="repeat(3, 1fr)">
+                        <grid:items>
+                            <VBox class="gridItem sapUiMediumMarginEnd" id="VBoxd2">
+                                <Label text="Promised Gain Year N" class="sapUiTinyMarginBottom" />
+                                   <Input id="promisedGainYearN" value="{context>/promisedgainyearn}" editable="false" width="100%"/>
+                            </VBox>
+                        </grid:items>
+                    </grid:CSSGrid>
+
+                    <grid:CSSGrid id="grid3" class="gridContainer" gridTemplateRows="auto" gridTemplateColumns="repeat(3, 1fr)">
+                        <grid:items>
+                            <VBox class="gridItem sapUiMediumMarginEnd " id="VBox3">
+                                <Label text="Promised Gain Year N+1" class="sapUiTinyMarginBottom"/>
+                                 <Input id="promisedGainYearNPlus1" value="{context>/promisedgainyearn1}" editable="false" width="100%"/>
+                            </VBox>
+                        </grid:items>
+                    </grid:CSSGrid>
+
+                    <grid:CSSGrid id="grid4" class="gridContainer" gridTemplateRows="auto" gridTemplateColumns="repeat(3, 1fr)">
+                        <grid:items>
+                            <VBox class="gridItem sapUiMediumMarginEnd" id="VBox4">
+                                <Label text="Promised Gain Year N+2" class="sapUiTinyMarginBottom"/>
+                                 <Input id="promisedGainYearNPlus2" value="{context>/promisedgainyearn2}" editable="false" width="100%"/>
+                            </VBox>
+                        </grid:items>
+                    </grid:CSSGrid>
+
+                    <grid:CSSGrid id="grid5" class="gridContainer" gridTemplateRows="auto" gridTemplateColumns="repeat(3, 1fr)">
+                        <grid:items>
+                            <VBox class="gridItem sapUiMediumMarginEnd " id="VBox5">
+                                <Label text="Promised Gain Year N+3" class="sapUiTinyMarginBottom"/>
+                                 <Input id="promisedGainYearNPlus3" value="{context>/promisedgainyearn3}" editable="false" width="100%"/>
+                            </VBox>
+                        </grid:items>
+                    </grid:CSSGrid>
+                </Panel>
+
+               <!-- <Panel id="gridLayout10" expandable="true" expanded="true" headerText="Info" width="auto" class="sapUiResponsiveMargin">
+    <grid:CSSGrid class="gridContainer" gridTemplateRows="auto auto auto auto" gridTemplateColumns="repeat(3, 1fr)">
+        <grid:items>
+            <VBox class="gridItem sapUiMediumMarginEnd">
+                <HBox>
+                    <Label text="Company Code" class="sapUiTinyMarginEnd" />
+                    <ImageContent src="sap-icon://information" description="{i18n>companycode}" press="press" class="smallIcon sapUiTinyMarginBottom sapUiTinyMarginStart" />
+                </HBox>
+                <Input id="company1" placeholder="Enter Company Code" width="100%" editable="false" value="{mainModel>COMPANY_CODE}" />
+            </VBox>
+
+            <VBox class="gridItem sapUiMediumMarginEnd">
+                <Label text="Cost Center" class="sapUiSmallMarginBottom" />
+                <Input id="costcenter" placeholder="Enter Cost Center" width="100%" editable="false" value="{mainModel>COST_CENTER}" />
+            </VBox>
+
+            <VBox class="gridItem sapUiMediumMarginEnd">
+                <Label text="Project risk" class="sapUiSmallMarginBottom " />
+                <Input id="projectrisk1" value="{context>/promisedgainyearN3}" editable="false" width="100%"/>
+            </VBox>
+        </grid:items>
+    </grid:CSSGrid>
+
+    <VBox width="100%" height="1px" class="separator" />
+
+    <grid:CSSGrid class="gridContainer" gridTemplateRows="auto auto auto auto" gridTemplateColumns="repeat(3, 1fr)">
+        <grid:items>
+            <VBox class="gridItem sapUiMediumMarginEnd">
+                <HBox>
+                    <Label text="Subsidies" class="sapUiTinyMarginEnd" />
+                    <ImageContent src="sap-icon://information" description="{i18n>subsidies}" press="press" class="smallIcon sapUiTinyMarginBottom sapUiTinyMarginStart" />
+                </HBox>
+                <Input id="subsidies" placeholder="Enter Subsidies year" width="100%" editable="false" />
+            </VBox>
+
+            <VBox class="gridItem sapUiMediumMarginEnd">
+                <HBox>
+                    <Label text="Subsidies Year" class="sapUiSmallMarginBottom" />
+                    <ImageContent src="sap-icon://information" description="{i18n>subsidiesyear}" press="press" class="smallIcon sapUiTinyMarginBottom sapUiTinyMarginStart" />
+                </HBox>
+                <Input id="subsidiesyear" placeholder="Enter Subsidies year" width="100%" editable="false" value="{mainModel>SUBSIDIES_PER_YEAR}" />
+            </VBox>
+
+            <VBox class="gridItem sapUiMediumMarginEnd">
+                <Label text="Stage Gates" class="sapUiSmallMarginBottom sapUiSmallMarginTop" />
+                  <Input id="stagegates" placeholder="Enter Stage Gates" width="100%" editable="false" />
+            </VBox>
+        </grid:items>
+    </grid:CSSGrid>
+
+    <VBox width="100%" height="1px" class="separator" />
+
+    <grid:CSSGrid class="gridContainer" gridTemplateRows="auto auto auto auto" gridTemplateColumns="repeat(3, 1fr)">
+        <grid:items>
+            <VBox class="gridItem sapUiMediumMarginEnd">
+                <Label text="Included in Leadership Journey" class="sapUiSmallMarginBottom sapUiSmallMarginTop" />
+                <Input id="leaderjourney" placeholder="Enter Leadership Journey" width="100%" editable="false" value="{mainModel>INCLUDED_LEADERSHIP_JOURNEY}" />
+            </VBox>
+
+            <VBox class="gridItem sapUiMediumMarginEnd">
+                <Label text="Concerned by additional specific insurance coverage" class="sapUiSmallMarginBottom sapUiSmallMarginTop" />
+                <Input id="insurancecoverage" placeholder="Enter Insurance Coverage" width="100%" editable="false" value="{mainModel>INSURANCE_COVERAGE}" />
+            </VBox>
+        </grid:items>
+    </grid:CSSGrid>
+</Panel> -->
+
+            </IconTabFilter>
+            <IconTabFilter text="Attachments" key="attachments">
+                <VBox >
+                    <Table id="table-uploadSet" sticky="ColumnHeaders,HeaderToolbar" width="auto" mode="MultiSelect" fixedLayout="false" inset="true" autoPopinMode="true" hiddenInPopin="None" items="{path: 'documents>/items', templateShareable: false}" selectionChange="onSelectionChange">
+
+                        <headerToolbar>
+                            <OverflowToolbar>
+                                <Title text="Attachments" level="H2"/>
+                                <ToolbarSpacer />
+
+                                <SearchField width="20%" liveChange="onSearch">
+                                    <layoutData>
+                                        <OverflowToolbarLayoutData priority="NeverOverflow" />
+                                    </layoutData>
+                                </SearchField>
+                                <ToolbarSeparator />
+
+                                <!-- Use the UploadButtonPlaceholder to add the UploadButton to the toolbar -->
+                                <upload:ActionsPlaceholder id="uploadButton" placeholderFor="UploadButtonPlaceholder" />
+
+                                <Button id="downloadSelectedButton" text="Download" enabled="false" press="onDownloadFiles" />
+                                <MenuButton text="Add">
+                                    <menu>
+                                        <Menu>
+                                            <MenuItem text="URL" press="openAddOrEditDialog" />
+                                        </Menu>
+                                    </menu>
+                                    <layoutData>
+                                        <OverflowToolbarLayoutData priority="AlwaysOverflow" />
+                                    </layoutData>
+                                </MenuButton>
+                                <Button id="removeDocumentButton" text="Remove" press="onRemoveButtonPress" enabled="false">
+                                    <layoutData>
+                                        <OverflowToolbarLayoutData priority="AlwaysOverflow" />
+                                    </layoutData>
+                                </Button>
+                                <Button id="renameButton" enabled="false" press="onRenameDocument" text="Rename">
+                                    <layoutData>
+                                        <OverflowToolbarLayoutData priority="AlwaysOverflow" />
+                                    </layoutData>
+                                </Button>
+                                <Button id="editUrlButton" text="Edit URL" enabled="false" press="onEditUrl">
+                                    <layoutData>
+                                        <OverflowToolbarLayoutData priority="AlwaysOverflow" />
+                                    </layoutData>
+                                </Button>
+                            </OverflowToolbar>
+                        </headerToolbar>
+
+                        <dependents>
+                            <plugins.UploadSetwithTable uploadUrl="/uploadFiles" multiple="true" beforeInitiatingItemUpload="onBeforeInitiatingItemUpload" beforeUploadStarts="onBeforeUploadStarts" itemRenamed="onDocumentRenamedSuccess" uploadCompleted="onUploadCompleted" onActivated="onPluginActivated" cloudFilePickerEnabled="true" actions="uploadButton">
+                                <rowConfiguration>
+                                    <upload.UploadItemConfiguration fileNamePath="fileName" mediaTypePath="mediaType" urlPath="url" previewablePath="previewable" fileSizePath="fileSize" isTrustedSourcePath="trustedSource" />
+                                </rowConfiguration>
+                            </plugins.UploadSetwithTable>
+                        </dependents>
+
+                        <columns>
+                            <Column id="fileName" importance="High">
+                                <header>
+                                    <Label text="File Name" />
+                                </header>
+                            </Column>
+                            <Column id="id">
+                                <header>
+                                    <Label text="ID" />
+                                </header>
+                            </Column>
+                            <Column id="revision">
+                                <header>
+                                    <Label text="Revision" />
+                                </header>
+                            </Column>
+                            <Column id="status">
+                                <header>
+                                    <Label text="Status" />
+                                </header>
+                            </Column>
+                            <Column id="fileSize">
+                                <header>
+                                    <Label text="File Size" />
+                                </header>
+                            </Column>
+                            <Column id="lastModified">
+                                <header>
+                                    <Label text="Last Modified" />
+                                </header>
+                            </Column>
+                            <Column id="actionButton" importance="High" />
+                        </columns>
+
+
+                        <items>
+                            <ColumnListItem press="onItemPress" highlight="{= ${documents>uploadState} === 'Complete' ? 'Indication05' : null }">
+
+                                <!-- Cells with cell template defining content for each column (cells and columns work with 1:1 mapping) -->
+                                <cells>
+                                    <HBox>
+                                        <Image src="{documents>imageUrl}" class="sapMUSTItemImage sapMUSTItemIcon" visible="{= ${documents>imageUrl} !== undefined}" />
+                                        <core:Icon src="{parts: ['documents>mediaType', 'documents>fileName'], formatter: '.getIconSrc' }" color="white" visible="{= ${documents>imageUrl} === undefined || ${documents>imageUrl} === '' }" class="sapMUSTItemImage sapMUSTItemIcon" />
+                                        <VBox class="sapUiTinyMargin sapUiSmallMarginBegin">
+                                            <Link text="{documents>fileName}" press="openPreview" class="sapUiTinyMarginBottom" />
+                                            <Text text="{documents>documentType}" />
+                                        </VBox>
+                                    </HBox>
+                                    <Text text="{documents>id}" />
+                                    <Link text="{documents>revision}" />
+                                    <Text text="{documents>status}" />
+                                    <Text text="{parts: ['documents>fileSize'], formatter: '.getFileSizeWithUnits'}" />
+                                    <VBox>
+                                        <Text text="{documents>lastModifiedBy}" />
+                                        <Text class="sapUiTinyMarginTop" text="{documents>lastmodified}" />
+                                    </VBox>
+                                    <Button class="sapUiTinyMarginBegin" type="Transparent" icon="sap-icon://decline" press="onRemoveHandler" />
+                                </cells>
+                            </ColumnListItem>
+                        </items>
+                    </Table>
+
+                </VBox>
+            </IconTabFilter>
+            <IconTabFilter key="comments" text="Comments">
+                <VBox id="comment-wrapper" class="sapUiSmallMargin">
+                    <Label text="Comments" />
+                    <CheckBox id="Ack" text="I acknowledge that we have received your order and will process it based on the availability" />
+                    <FeedInput post="onPost"/>
+                    <List showSeparators="Inner">
+                        <FeedListItem sender="{context>/comments/Author}" info="Reply" timestamp="18.10.2024" text="Draft" />
+                    </List>
+                </VBox>
+            </IconTabFilter>
+        </items>
+    </IconTabBar>
 </mvc:View>

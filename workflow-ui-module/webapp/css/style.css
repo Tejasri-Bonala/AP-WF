@@ -1,1 +1,17 @@
 /* Enter your custom styles here */
+
+.smallIcon .sapMImageContentImageIcon.sapUiIcon{
+    font-size: 1rem;
+
+}
+.sapMImageContent {
+    position: relative;
+    height: 1.675rem;
+    width: 1.2rem;
+    outline: none;
+}
+.sapSuiteUiCommonsProcessFlowNode {
+    display: inline-block;
+    margin-right: 10px; /* Adjust spacing between nodes as needed */
+    vertical-align: top;
+}

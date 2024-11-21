@@ -74,7 +74,7 @@
                 "preload": true,
                 "settings": {}
             },
-            "stepsModel": {
+            "stepsflowModel": {
                 "type": "sap.ui.model.json.JSONModel",
                 "uri": "model/status.json"
             },
@@ -146,17 +146,17 @@
             "title": "input",
             "type": "object",
             "properties": {
-                "projectNumber": {
+                "projectnumber": {
                     "type": "string",
                     "title": "PROJECT_NUMBER",
                     "description": "PROJECT_NUMBER"
                 },
-                "cto_label": {
+                "ctolabel": {
                     "type": "string",
                     "title": "CTO_LABEL",
                     "description": "CTO_LABEL"
                 },
-                "project_maturity": {
+                "projectmaturity": {
                     "type": "string",
                     "title": "PROJECT_MATURITY",
                     "description": "PROJECT_MATURITY"
@@ -166,7 +166,7 @@
                     "title": "TITLE",
                     "description": "TITLE"
                 },
-                "accounting_type": {
+                "accountingtype": {
                     "type": "string",
                     "title": "ACCOUNTING_TYPE",
                     "description": "ACCOUNTING_TYPE"
@@ -205,6 +205,26 @@
                     "type": "string",
                     "title": "LEASE",
                     "description": "LEASE"
+                },
+                "capexlc": {
+                    "type": "string",
+                    "title": "Capex_Local_Currency",
+                    "description": "Capex_Local _Currency"
+                },
+                "opexlc": {
+                    "type": "string",
+                    "title": "Opex_Local _Currency",
+                    "description": "Opex_Local_Currency"
+                },
+                "leasemonth": {
+                    "type": "string",
+                    "title": "Month if Accounting Type is Lease",
+                    "description": "Month_if_Accounting_Type_is_Lease"
+                },
+                "leasestartdate": {
+                    "type": "string",
+                    "title": "Lease_Start_Date",
+                    "description": "Lease_Start_Date"
                 },
                 "categories": {
                     "type": "string",
@@ -216,10 +236,86 @@
                     "title": "YEAR",
                     "description": "YEAR"
                 },
+                "forecastyearn": {
+                    "type": "string",
+                    "title": "Forecast_Year_N",
+                    "description": "Forecast_Year_N"
+                },
+                "forecastyearn1": {
+                    "type": "string",
+                    "title": "Forecast_Year_N1",
+                    "description": "Forecast_Year_N1"
+                },
+                "forecastyearn2": {
+                    "type": "string",
+                    "title": "Forecast_Year_N2",
+                    "description": "Forecast_Year_N2"
+                },
+                "forecastyearnlc": {
+                    "type": "string",
+                    "title": "Forecast_Year_N_Local_Currency",
+                    "description": "Forecast_Year_N"
+                },
+                "forecastyearn1lc": {
+                    "type": "string",
+                    "title": "Forecast_Year_N1_Local_Currency",
+                    "description": "Forecast_Year_N1"
+                },
+                "forecastyearn2lc": {
+                    "type": "string",
+                    "title": "Forecast_Year_N2_Local_Currency",
+                    "description": "Forecast_Year_N2"
+                },
+                "irr":{
+                    "type": "string",
+                    "title": "IRR",
+                    "description": "IRR"
+                },
+                "roi":{
+                    "type": "string",
+                    "title": "ROI",
+                    "description": "ROI"
+                },
+                "promisedgainyearn": {
+                    "type": "string",
+                    "title": "Promised_Gain_Year_N",
+                    "description": "Promised_Gain_Year_N"
+                },
+                "promisedgainyearn1": {
+                    "type": "string",
+                    "title": "Promised_Gain_Year_N1",
+                    "description": "Promised_Gain_Year_N1"
+                },
+                "promisedgainyearn2": {
+                    "type": "string",
+                    "title": "Promised_Gain_Year_N2",
+                    "description": "Promised_Gain_Year_N2"
+                },
+                "promisedgainyearn3": {
+                    "type": "string",
+                    "title": "Promised_Gain_Year_N3",
+                    "description": "Promised_Gain_Year_N3"
+                },
+
                 "comments":{
                     "type": "object",
                     "title": "COMMENTS",
                     "description": "COMMENTS"
+                },
+                "investmentprogramnumber":{
+                    "type": "string",
+                    "title": "Investment_Program_Number",
+                    "description": "Investment_Program_Number"
+                },
+                "investmentprogramtitle":{
+                    "type": "string",
+                    "title": "Investment_Program_Title",
+                    "description": "Investment_Program_Title"
+                },
+                "investmentrequestno":{
+                    "type": "number",
+                    "title": "Investment_Request_Number",
+                    "description": "Investment_Request_Number"
                 }
             }
         },
@@ -228,17 +324,17 @@
             "title": "output",
             "type": "object",
             "properties": {
-                "projectNumber": {
+                "projectnumber": {
                     "type": "string",
                     "title": "PROJECT_NUMBER",
                     "description": "PROJECT_NUMBER"
                 },
-                "cto_label": {
+                "ctolabel": {
                     "type": "string",
                     "title": "CTO_LABEL",
                     "description": "CTO_LABEL"
                 },
-                "project_maturity": {
+                "projectmaturity": {
                     "type": "string",
                     "title": "PROJECT_MATURITY",
                     "description": "PROJECT_MATURITY"
@@ -248,7 +344,7 @@
                     "title": "TITLE",
                     "description": "TITLE"
                 },
-                "accounting_type": {
+                "accountingtype": {
                     "type": "string",
                     "title": "ACCOUNTING_TYPE",
                     "description": "ACCOUNTING_TYPE"
@@ -288,6 +384,26 @@
                     "title": "LEASE",
                     "description": "LEASE"
                 },
+                "capexlc": {
+                    "type": "string",
+                    "title": "Capex_Local_Currency",
+                    "description": "Capex_Local _Currency"
+                },
+                "opexlc": {
+                    "type": "string",
+                    "title": "Opex_Local _Currency",
+                    "description": "Opex_Local_Currency"
+                },
+                "leasemonth": {
+                    "type": "string",
+                    "title": "Month if Accounting Type is Lease",
+                    "description": "Month_if_Accounting_Type_is_Lease"
+                },
+                "leasestartdate": {
+                    "type": "string",
+                    "title": "Lease_Start_Date",
+                    "description": "Lease_Start_Date"
+                },
                 "categories": {
                     "type": "string",
                     "title": "CATEGORIES",
@@ -295,13 +411,89 @@
                 },
                 "year": {
                     "type": "string",
-                    "title": "YEAR_N",
-                    "description": "YEAR_N"
+                    "title": "YEAR",
+                    "description": "YEAR"
                 },
-                "comments":{
+                "forecastyearn": {
                     "type": "string",
+                    "title": "Forecast_Year_N",
+                    "description": "Forecast_Year_N"
+                },
+                "forecastyearn1": {
+                    "type": "string",
+                    "title": "Forecast_Year_N1",
+                    "description": "Forecast_Year_N1"
+                },
+                "forecastyearn2": {
+                    "type": "string",
+                    "title": "Forecast_Year_N2",
+                    "description": "Forecast_Year_N2"
+                },
+                "forecastyearnlc": {
+                    "type": "string",
+                    "title": "Forecast_Year_N_Local_Currency",
+                    "description": "Forecast_Year_N"
+                },
+                "forecastyearn1lc": {
+                    "type": "string",
+                    "title": "Forecast_Year_N1_Local_Currency",
+                    "description": "Forecast_Year_N1"
+                },
+                "forecastyearn2lc": {
+                    "type": "string",
+                    "title": "Forecast_Year_N2_Local_Currency",
+                    "description": "Forecast_Year_N2"
+                },
+                "irr":{
+                    "type": "string",
+                    "title": "IRR",
+                    "description": "IRR"
+                },
+                "roi":{
+                    "type": "string",
+                    "title": "ROI",
+                    "description": "ROI"
+                },
+                "promisedgainyearn": {
+                    "type": "string",
+                    "title": "Promised_Gain_Year_N",
+                    "description": "Promised_Gain_Year_N"
+                },
+                "promisedgainyearn1": {
+                    "type": "string",
+                    "title": "Promised_Gain_Year_N1",
+                    "description": "Promised_Gain_Year_N1"
+                },
+                "promisedgainyearn2": {
+                    "type": "string",
+                    "title": "Promised_Gain_Year_N2",
+                    "description": "Promised_Gain_Year_N2"
+                },
+                "promisedgainyearn3": {
+                    "type": "string",
+                    "title": "Promised_Gain_Year_N3",
+                    "description": "Promised_Gain_Year_N3"
+                },
+
+                "comments":{
+                    "type": "object",
                     "title": "COMMENTS",
                     "description": "COMMENTS"
+                },
+                "investmentprogramnumber":{
+                    "type": "string",
+                    "title": "Investment_Program_Number",
+                    "description": "Investment_Program_Number"
+                },
+                "investmentprogramtitle":{
+                    "type": "string",
+                    "title": "Investment_Program_Title",
+                    "description": "Investment_Program_Title"
+                },
+                "investmentrequestno":{
+                    "type": "number",
+                    "title": "Investment_Request_Number",
+                    "description": "Investment_Request_Number"
                 }
             }
         },
